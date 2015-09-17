@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project 1 - Slider</title>
+	
+	<style type="text/css">
+		
+		body{
+			padding: 0px;
+			margin: 0px;
+			font-family:sans-serif;
+		}
+
+		.box{
+			border: 1px solid #AAAAAA;
+			padding: 10px;
+			display: block;
+			margin-bottom: 10px;
+			display: inline-block;
+		}
+
+		.box.result{
+			background-color: #F2F6EE;
+		}
+
+		.box.code{
+			background-color: #F6EEEE;
+		}
+
+		.content{
+			width: 80%;
+			margin: 0 auto;
+		}
+
+		#result1{
+			background-color: #BABACA;
+			color: #000;
+			width: 10%;
+			height: 30px;
+			font-size: 25px;
+			text-align: center;
+		}
+
+	</style>
+	
+</head>
+<body>
+
+	<header>
+		<!-- <h1>Project	</h1> -->
+	</header>
+
+	<div class="content">
+
+		<h1>Playing with the HTML5 range slider input</h1>
+
+		<h3>Basic input</h3>
+		<div class="box code">
+			<code>
+				&lt;input type="range" /&gt;
+			</code>
+		</div>
+
+		<h4>Result</h4>
+		<div class="box result">
+			<input type="range" />
+		</div>
+
+		<hr />
+
+
+		<h3>Using range</h3>
+		<div class="box code">
+			<code>
+				&lt;input type="range" id="myRange" min="0" value="10" max="100" step="5"/&gt;
+			</code>
+		</div>
+
+		<h4>Result</h4>
+		<div class="box result">
+			<input type="range" id="myRange" min="0" value="10" max="100" step="5"/>
+		</div>
+			<p id="result1">10%</p>
+
+
+		
+	</div>
+
+	<footer>
+		
+	</footer>
+
+	<script type="text/javascript">
+		var myRangeInput = document.getElementById("myRange");
+		myRangeInput.oninput = function(){
+			var newValue = myRangeInput.value;
+			var result = document.getElementById("result1");
+			result.innerHTML = newValue;
+			result.style.width = newValue + "%";
+		};
+
+	</script>	
+</body>
+</html>
