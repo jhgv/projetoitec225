@@ -11,6 +11,10 @@
 			font-family:sans-serif;
 		}
 
+		.row{
+			display: block;
+		}
+
 		.box{
 			border: 1px solid #AAAAAA;
 			padding: 10px;
@@ -32,7 +36,7 @@
 			margin: 0 auto;
 		}
 
-		#result1{
+		.result-bar{
 			background-color: #BABACA;
 			color: #000;
 			width: 10%;
@@ -54,33 +58,55 @@
 
 		<h1>Playing with the HTML5 range slider input</h1>
 
-		<h3>Basic input</h3>
-		<div class="box code">
-			<code>
-				&lt;input type="range" /&gt;
-			</code>
-		</div>
+		<div class="row">
+			<h3>Basic input</h3>
+			<div class="box code">
+				<code>
+					&lt;input type="range" /&gt;
+				</code>
+			</div>
 
-		<h4>Result</h4>
-		<div class="box result">
-			<input type="range" />
+			<h4>Result</h4>
+			<div class="box result">
+				<input type="range" />
+			</div>
 		</div>
 
 		<hr />
 
+		<div class="row">
+			<h3>Using range</h3>
+			<p>Set <code>min</code> and <code>max</code> atribute to determine the range of possible values for the input.</p>
+			<div class="box code">
+				<code>
+					&lt;input type="range" min="0" max="100"/&gt;
+				</code>
+			</div>
 
-		<h3>Using range</h3>
-		<div class="box code">
-			<code>
-				&lt;input type="range" id="myRange" min="0" value="10" max="100" step="5"/&gt;
-			</code>
+			<h4>Result</h4>
+			<div class="box result">
+				<input type="range" id="myRange" min="0" max="100"/>
+			</div>
+			<p class="result-bar" id="result1"></p>
 		</div>
 
-		<h4>Result</h4>
-		<div class="box result">
-			<input type="range" id="myRange" min="0" value="10" max="100" step="5"/>
+		<hr />
+
+		<div class="row">
+			<h3>Step atributte</h3>
+			<p>Use <code>value</code> to set a default value and <code>step</code> sets or returns the value of the step attribute of the slider control.</p>
+			<div class="box code">
+				<code>
+					&lt;input type="range" min="0" value="10" max="100" step="10"/&gt;
+				</code>
+			</div>
+
+			<h4>Result</h4>
+			<div class="box result">
+				<input type="range" id="myRange2" min="0" value="10" max="100" step="10"/>
+			</div>
+			<p class="result-bar" id="result2"></p>
 		</div>
-			<p id="result1">10%</p>
 
 
 		
@@ -91,13 +117,36 @@
 	</footer>
 
 	<script type="text/javascript">
-		var myRangeInput = document.getElementById("myRange");
-		myRangeInput.oninput = function(){
-			var newValue = myRangeInput.value;
-			var result = document.getElementById("result1");
-			result.innerHTML = newValue;
-			result.style.width = newValue + "%";
+
+		var result1 = document.getElementById("result1");
+		var myRangeInput1 = document.getElementById("myRange");
+		var defaultValue1 = myRangeInput1.value;
+		setWidthBar1(defaultValue1);
+
+		var result2 = document.getElementById("result2");
+		var myRangeInput2 = document.getElementById("myRange2");
+		var defaultValue2 = myRangeInput2.value;
+		setWidthBar2(defaultValue2);
+
+		myRangeInput1.oninput = function(){
+			var newValue = myRangeInput1.value;
+			setWidthBar1(newValue);
 		};
+
+		myRangeInput2.oninput = function(){
+			var newValue = myRangeInput2.value;
+			setWidthBar2(newValue);
+		};
+
+		function setWidthBar1(newValue){
+			result1.innerHTML = newValue;
+			result1.style.width = newValue + "%";
+		}
+
+		function setWidthBar2(newValue){
+			result2.innerHTML = newValue;
+			result2.style.width = newValue + "%";
+		}
 
 	</script>	
 </body>
