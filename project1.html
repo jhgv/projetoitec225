@@ -11,6 +11,24 @@
 			font-family:sans-serif;
 		}
 
+		table, tr, td{
+			border: 1px solid #d0d0d0;
+		}
+
+		td{
+			padding: 5px;
+		}
+
+		/*style for even and odd rows*/
+		tr:nth-child(even) {
+			background-color: #F2F6EE;
+		}
+
+		tr:nth-child(odd) {
+			background: #FFF;
+		}
+
+
 		.row{
 			display: block;
 		}
@@ -58,6 +76,82 @@
 
 		<h1>Playing with the HTML5 range slider input</h1>
 
+		<h2>Input Range Properties</h2>
+		<table>
+		  	<tbody>
+		  		<tr>
+					<th style="width:20%">Property</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td>autocomplete</td>
+					<td>Sets or returns the value of the autocomplete attribute of a slider control</td>
+				</tr>
+				<tr>
+					<td>autofocus</a></td>
+					<td>Sets or returns whether a slider control should automatically get focus when the page loads</td>
+				</tr>
+				<tr>
+					<td>defaultValue</a></td>
+					<td>Sets or returns the default value of a slider control</td>
+				</tr>
+				<tr>
+					<td>disabled</a></td>
+					<td>Sets or returns whether a slider control is disabled, or not</td>
+				</tr>
+				<tr>
+					<td>form</a></td>
+					<td>Returns a reference to the form that contains the slider control</td>
+				</tr>
+				<tr>
+					<td>list</td>
+					<td>Returns a reference to the datalist that contains the slider control</td>
+				</tr>
+				<tr>
+					<td>max</a></td>
+					<td>Sets or returns the value of the max attribute of the slider control</td>
+				</tr>
+				<tr>
+					<td>min</a></td>
+					<td>Sets or returns the value of the min attribute of the slider control</td>
+				</tr>
+				<tr>
+					<td>name</a></td>
+					<td>Sets or returns the value of the name attribute of a slider control</td>
+				</tr>
+				<tr>
+					<td>step</a></td>
+					<td>Sets or returns the value of the step attribute of the slider control</td>
+				</tr>
+				<tr>
+					<td>type</a></td>
+					<td>Returns which type of form element the slider control is</td>
+				</tr>
+				<tr>
+					<td>value</a></td>
+					<td>Sets or returns the value of the value attribute of a slider control</td>
+				</tr>
+			</tbody>			
+		</table>
+
+		<h2>Input Range Object Methods</h2>
+		<table>
+		  	<tbody>
+		  		<tr>
+					<th style="width:20%">Method</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td>stepDown()</td>
+					<td>Decrements the value of the slider control by a specified number</td>
+				</tr>
+				<tr>
+					<td>stepUp()</td>
+					<td>Increments the value of the slider control by a specified number</td>
+				</tr>	
+			</tbody>			
+		</table>
+
 		<div class="row">
 			<h3>Basic input</h3>
 			<div class="box code">
@@ -69,6 +163,22 @@
 			<h4>Result</h4>
 			<div class="box result">
 				<input type="range" />
+			</div>
+		</div>
+
+		<hr />
+
+		<div class="row">
+			<h3>Autofocus</h3>
+			<div class="box code">
+				<code>
+					&lt;input type="range" min="0" max="100" autofocus/&gt;
+				</code>
+			</div>
+
+			<h4>Result</h4>
+			<div class="box result">
+				<input type="range" min="0" max="100" />
 			</div>
 		</div>
 
@@ -97,17 +207,16 @@
 			<p>Use <code>value</code> to set a default value and <code>step</code> sets or returns the value of the step attribute of the slider control.</p>
 			<div class="box code">
 				<code>
-					&lt;input type="range" min="0" value="10" max="100" step="10"/&gt;
+					&lt;input type="range" min="0" value="20" max="100" step="20"/&gt;
 				</code>
 			</div>
 
 			<h4>Result</h4>
 			<div class="box result">
-				<input type="range" id="myRange2" min="0" value="10" max="100" step="10"/>
+				<input type="range" id="myRange2" min="0" value="20" max="100" step="20"/>
 			</div>
 			<p class="result-bar" id="result2"></p>
 		</div>
-
 
 		
 	</div>
